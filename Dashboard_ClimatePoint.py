@@ -130,14 +130,16 @@ def get_data_exio():
 st.set_page_config(layout ='wide')#Set layout and title
 image = Image.open('./ClimatePoint_logo.png')#Climate Point Logo
 st.image(image, width =150 ) #Set image in dashboard
-st.title ('ClimatePoint Dashboard!') #Title
+st.title ('ClimatePoint Dashboard Demo') #Title
 
 #About
 about = st.expander('About')
 about.markdown("""This Dashboard showcases the Global Warming Potential of multiple products and services according to ISIC Classification. \n
-It allows for the easy interaction with two databases: Ecoinvent (v3.8) and EXIOBASE (v3.4, year 2011). \n
-The query results can be used to easily look up recorded emission values of given ISIC codes. \n
-This Dashboard was created as part of a MSc Industrial Ecology project in conjunction with ClimatePoint
+It allows for the easy interaction with two databases: Ecoinvent (v3.8) and EXIOBASE (v3.4, year 2011). 
+The query results can be used to easily look up recorded emission values of given ISIC codes. 
+This Dashboard was created as part of a MSc Industrial Ecology project in conjunction with ClimatePoint \n
+
+Ecoinvent Data is not real. A license is necessary to use the desired data for defined purposes. Data shown is are randomized values and structure is based on the Database Overview for ecoinvent v3.8.
 
  """)
 
