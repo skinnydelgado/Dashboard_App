@@ -139,7 +139,7 @@ It allows for the easy interaction with two databases: Ecoinvent (v3.8) and EXIO
 The query results can be used to easily look up recorded emission values of given ISIC codes. 
 This Dashboard was created as part of a MSc Industrial Ecology project in conjunction with ClimatePoint \n
 
-Ecoinvent Data is not real. A license is necessary to use the desired data for defined purposes. Data shown is are randomized values and structure is based on the Database Overview for ecoinvent v3.8.
+Ecoinvent Data is not real. A license is necessary to use the desired data for defined purposes. Data shown are randomized values and structure is based on Ecoinvent's Database Overview.
 
  """)
 
