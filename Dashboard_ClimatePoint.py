@@ -83,7 +83,7 @@ def boxplot(df, column_list, by_list):
     return fig
 
 
-#%% Read data
+# Read data
 
 #Import Data Ecoinvent. Currently set at reading the file with RANDOM Values. License is needed.
 @st.cache #this allows for the app to only read the csv once and cache it, instead of reading it everytime.
@@ -123,9 +123,7 @@ def get_data_exio():
     return exio_df
 
 
-#%%
-### DASHBOARD SETUP
-
+#%%### DASHBOARD SETUP
 #General setup
 st.set_page_config(layout ='wide')#Set layout and title
 image = Image.open('./ClimatePoint_logo.png')#Climate Point Logo
@@ -140,9 +138,7 @@ The query results can be used to easily look up recorded emission values of give
 This Dashboard was created as part of a MSc Industrial Ecology project in conjunction with ClimatePoint \n
 
 Ecoinvent Data is not real. A license is necessary to use the desired data for defined purposes. Data shown are randomized values and structure is based on Ecoinvent's Database Overview.
-
  """)
-
 
 #instructions
 instructions = st.expander('Instructions')
@@ -168,7 +164,7 @@ can adjust the selected regions in the field below. For further explanations of 
 #### Important Note!
 Make sure you read the “Disclaimer” box! Use the results with caution. Both databases are in constant development and undergo changes and updates. 
 Emission values should never be taken at face value, but rather as an approximation.
-                    
+                   
 ''')
 
 #Disclaimer Paragrpah
@@ -179,7 +175,6 @@ Please cite as follows: Tan, Chia Wu, Delgado Elizundia, Felix, Breekveldt, Laur
 ''')
 
 st.write('''***''') #line break
-
 
 #%% ISIC Selector
 
@@ -206,10 +201,7 @@ ISIC3 = st.selectbox('Select ISIC 3 Group', ISIC3_List, 0) # Selectbox of values
 ISIC4_List = eco_df['ISIC 4'].loc[eco_df['ISIC 3'] == ISIC3].unique() # Create list of unique ISIC 4 values  within the selected ISIC 3
 ISIC4 = st.selectbox('Select ISIC 4 Class', ISIC4_List, 0) # Selectbox of values in the list above
 
-
-
 #%% search bar in the middle
-
 st.write('''***''') #line break
 
 st.markdown(''' ### Don't know the ISIC Classification? \n Search by product and find it's ISIC category:''')
@@ -223,19 +215,13 @@ helper = eco_df[eco_df['Reference Product Name']==product_helper] #selects all p
 helper = helper.loc[:, [ 'ISIC 1', 'ISIC 2','ISIC 3', 'ISIC 4', 'Unit']].iloc[0] # Show the column names you want (loc) and first row (iloc[0])
 search_bar.dataframe(helper)
 
-
 #%% set columns
-
 st.write('''***''') #line break
-
-
-
 
 #Columns of dashboard
 col2, col3 = st.columns((1,1)) #Creating columns
 
 st.write('''***''') #line break
-
 
 #%%#### COLUMN TWO - ECOINVENT
 col2.title('ECOINVENT v3.8') #Title
@@ -488,11 +474,12 @@ selected_data_exio= exio_df[ (exio_df['ISIC 4']== ISIC4) &
 col3.write('Data Dimension: ' + str(selected_data_exio.shape[0]) + 
           ' rows and ' + str(selected_data_exio.shape[1]) + 
           ' columns')
-# col3.dataframe(selected_data_exio)
+
 col3.dataframe(selected_data_exio.loc[:, ['Region', 'ISIC 4',
                                           'Value', 
                                           'Perspective', 
                                           'Type', "World Region"]])
+
 col3.write ('Showcasing ' + str(types) + ' Intensity with ' + str(perspective) + ' Perspective by ' + str(mean_type))
 col3.markdown (""" **How to interpret the table** \n
 This table shows the given GHG intensity for a ISIC code from the Input-Output-Analysis, using data from Exiobase. 
@@ -515,11 +502,10 @@ barchart_df = selected_data_exio[(selected_data_exio['Region'] != 'EU27') &
                                  (selected_data_exio['Region'] != 'GLO') ]                          
                                  
 barchart_df.plot.bar('Region', 'Value', width = 1.0, ec = c2, color=c1, ax=ax)
-# selected_data_exio.plot.bar('Region', 'Value', width = 1.0, ec = c2, color=c1, ax=ax)
+
 #Plot horizontal lines of GLOBAL and EU Values
 plt.axhline(y=float(selected_data_exio.loc[selected_data_exio['Region'] == 'GLO', 'Value']) , color = 'r', linewidth = '3', label = 'Global' ) #horizontal line for GLO Value
 plt.axhline(y=float (selected_data_exio.loc[selected_data_exio['Region'] == 'Europe including EU27', 'Value']) , color = 'b', linewidth = '3', label = 'Europe' )#horizontal line for EU Value
-# plot = selected_data_exio.plot.bar('Region', 'Value', width = 1.0, ec = "black", color="ff4b4b", figsize = (20,7), ax=ax)
 label = selected_data_exio ['ISIC 4'].iloc[0]
 title_boxplot = 'ISIC: ' +str(label) 
 ax.grid(axis="y", color="w", linewidth=1.5)
