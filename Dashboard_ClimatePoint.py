@@ -310,12 +310,12 @@ plt.xlabel('Global Warming Potential '+'[CO2eq / ' + str(unit)+']', fontsize = 3
 
 col2.pyplot(boxplot1_ECO)
 
-btn1 = col2.download_button(
-             label="Download plot",
-             data=boxplot1_ECO,
-             file_name="boxplot1.png",
-             mime="image/png"
-           )  
+# btn1 = col2.download_button(
+#              label="Download plot",
+#              data=boxplot1_ECO,
+#              file_name="boxplot1.png",
+#              mime="image/png"
+#            )  
 plt.close()
 
 col2.markdown ("""The boxplot summarizes available emissions Global Warming Potential (GWP) data on a reference product level.
@@ -357,12 +357,12 @@ col2.pyplot(boxplot2_ECO)
  
 
 #Download button
-btn2 = col2.download_button(
-        label="Download plot",
-        data=boxplot2_ECO,
-        file_name="boxplot_eco2.png",
-        mime="image/png"
-      )                  
+# btn2 = col2.download_button(
+#         label="Download plot",
+#         data=boxplot2_ECO,
+#         file_name="boxplot_eco2.png",
+#         mime="image/png"
+#       )                  
 plt.close()  
    
 col2.markdown ("""The boxplot summarizes all available emissions data on a reference product level differentiating 
@@ -535,12 +535,12 @@ col3.pyplot(plt)
 
 #Download button
 
-btn3 = col3.download_button(
-        label="Download plot",
-        data=plt,
-        file_name="barchart_exio.png",
-        mime="image/png"
-      )   
+# btn3 = col3.download_button(
+#         label="Download plot",
+#         data=plt,
+#         file_name="barchart_exio.png",
+#         mime="image/png"
+#       )   
 plt.close()
   
 col3.markdown ('The barchart showcases the '+ str(mean_type)+ ' Emission ' + str(types) + ' Intensity (' + str(ulabel) + ') data from a ' + str(perspective) + 
@@ -569,12 +569,12 @@ plt.xlabel(ulabel, fontsize = 20) #Unit label
 col3.pyplot(region_boxplot)   
 
 #Download button
-btn = col3.download_button(
-        label="Download plot",
-        data=region_boxplot,
-        file_name="boxplot_exio.png",
-        mime="image/png"
-        )
+# btn = col3.download_button(
+#         label="Download plot",
+#         data=region_boxplot,
+#         file_name="boxplot_exio.png",
+#         mime="image/png"
+#         )
 plt.close() 
 #Comment on boxplot
 col3.write ('The boxplot summarizes Emission ' + str(types) + ' Intensity (' + str(ulabel) + ') from a ' + str(perspective) + ' Perspective calculated by ' + str(mean_type)+ 
