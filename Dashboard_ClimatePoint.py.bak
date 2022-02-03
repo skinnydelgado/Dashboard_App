@@ -77,7 +77,7 @@ def boxplot(df, column_list, by_list):
     plt.title( title_boxplot, fontsize = 25 )
     plt.xticks(fontsize =20)
     plt.yticks(fontsize =20)
-    #plt.tight_layout()	
+    plt.tight_layout()	
     plt.suptitle('') 
     # col2.pyplot(plt) 
     return fig

@@ -307,7 +307,7 @@ boxplot1_ECO = boxplot(boxplot_tranf_act_df,
                         ["GWP [kg CO2 eq.]"], 
                         ['Reference Product Name'])
 plt.xlabel('Global Warming Potential '+'[CO2eq / ' + str(unit)+']', fontsize = 30) #Unit label
-plt.savefig('boxplot1.png')
+#plt.savefig('boxplot1.png')
 col2.pyplot(boxplot1_ECO)
 
 with open("boxplot1.png", "rb") as file:
@@ -352,7 +352,7 @@ col2.write ('#### Boxplot of product and services by type of activity ' '\n' 'Or
 boxplot2_ECO = boxplot(selected_data_ecoinvent, ["GWP [kg CO2 eq.]"], ['Reference Product Name','Special Activity Type'])
 
 plt.xlabel('Global Warming Potential '+'[CO2eq / ' + str(unit)+']', fontsize = 30) #Unit label
-plt.savefig('boxplot_eco2.png')
+#plt.savefig('boxplot_eco2.png')
 col2.pyplot(boxplot2_ECO) 
  
 plt.close()
@@ -530,7 +530,7 @@ else:
     ulabel = 'CO2eq / Euros'
 plt.ylabel(ulabel, fontsize = 20) #Unit label
 # plt.xlabel(fontsize = 20)
-plt.savefig('barchart_exio.png')
+#plt.savefig('barchart_exio.png')
 col3.pyplot(plt)
 plt.close()
 #Download button
@@ -563,7 +563,7 @@ region_boxplot_df2=pd.concat([region_boxplot_df , EU_df]) # merge DFs and creat 
 #Plotting
 region_boxplot = boxplot (region_boxplot_df2, ["Value"], ["World Region"])
 plt.xlabel(ulabel, fontsize = 20) #Unit label
-plt.savefig('boxplot_exio.png')
+#plt.savefig('boxplot_exio.png')
 col3.pyplot(region_boxplot)   
 plt.close() 
 #Download button
