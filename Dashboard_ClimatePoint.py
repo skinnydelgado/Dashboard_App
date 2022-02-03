@@ -307,16 +307,16 @@ boxplot1_ECO = boxplot(boxplot_tranf_act_df,
                         ["GWP [kg CO2 eq.]"], 
                         ['Reference Product Name'])
 plt.xlabel('Global Warming Potential '+'[CO2eq / ' + str(unit)+']', fontsize = 30) #Unit label
-#plt.savefig('boxplot1.png')
+
 col2.pyplot(boxplot1_ECO)
 
-with open("boxplot1.png", "rb") as file:
-     btn = col2.download_button(
+btn1 = col2.download_button(
              label="Download plot",
-             data=file,
+             data=boxplot1_ECO,
              file_name="boxplot1.png",
              mime="image/png"
            )  
+plt.close()
 
 col2.markdown ("""The boxplot summarizes available emissions Global Warming Potential (GWP) data on a reference product level.
               It only inlcudes the Ordinary transforming activity type, aka, the actual production process itself.
@@ -355,16 +355,16 @@ plt.xlabel('Global Warming Potential '+'[CO2eq / ' + str(unit)+']', fontsize = 3
 #plt.savefig('boxplot_eco2.png')
 col2.pyplot(boxplot2_ECO) 
  
-plt.close()
+
 #Download button
-with open("boxplot_eco2.png", "rb") as file:
-     btn = col2.download_button(
-             label="Download plot",
-             data=file,
-             file_name="boxplot_eco2.png",
-             mime="image/png"
-           )                  
-     
+btn2 = col2.download_button(
+        label="Download plot",
+        data=boxplot2_ECO,
+        file_name="boxplot_eco2.png",
+        mime="image/png"
+      )                  
+plt.close()  
+   
 col2.markdown ("""The boxplot summarizes all available emissions data on a reference product level differentiating 
                 between ordinary transformation activities and market activities. 
                 The range of the data stems from regional variabilities in production emissions. 
@@ -532,15 +532,17 @@ plt.ylabel(ulabel, fontsize = 20) #Unit label
 # plt.xlabel(fontsize = 20)
 #plt.savefig('barchart_exio.png')
 col3.pyplot(plt)
-plt.close()
+
 #Download button
-with open("barchart_exio.png", "rb") as file:
-     btn = col3.download_button(
-             label="Download plot",
-             data=file,
-             file_name="barchart_exio.png",
-             mime="image/png"
-           )     
+
+btn3 = col3.download_button(
+        label="Download plot",
+        data=plt,
+        file_name="barchart_exio.png",
+        mime="image/png"
+      )   
+plt.close()
+  
 col3.markdown ('The barchart showcases the '+ str(mean_type)+ ' Emission ' + str(types) + ' Intensity (' + str(ulabel) + ') data from a ' + str(perspective) + 
                """ Perspective of the selected ISIC code by country. 
                The chart also shows the Global and European value. 
@@ -565,15 +567,15 @@ region_boxplot = boxplot (region_boxplot_df2, ["Value"], ["World Region"])
 plt.xlabel(ulabel, fontsize = 20) #Unit label
 #plt.savefig('boxplot_exio.png')
 col3.pyplot(region_boxplot)   
-plt.close() 
+
 #Download button
-with open("boxplot_exio.png", "rb") as file:
-     btn = col3.download_button(
-             label="Download plot",
-             data=file,
-             file_name="boxplot_exio.png",
-             mime="image/png"
-             )
+btn = col3.download_button(
+        label="Download plot",
+        data=region_boxplot,
+        file_name="boxplot_exio.png",
+        mime="image/png"
+        )
+plt.close() 
 #Comment on boxplot
 col3.write ('The boxplot summarizes Emission ' + str(types) + ' Intensity (' + str(ulabel) + ') from a ' + str(perspective) + ' Perspective calculated by ' + str(mean_type)+ 
             " data of the selected ISIC code level differentiating between World Regions. The range of the data stems from country level variabilities within the same region. " )
