@@ -266,7 +266,7 @@ unit = eco_expander.radio('Select Unit (Only products with the same unit can be 
 selected_data_ecoinvent= eco_df[ (eco_df['ISIC 4']== ISIC4) & # == only takes one value
                       (eco_df['Reference Product Name'].isin(product)) &
                       (eco_df.Geography.isin(geography)) &# isin can take a list
-                      (eco_df['Unit'] == unit)]
+                      (eco_df['Unit'] == unit)].copy()
 
 
 
