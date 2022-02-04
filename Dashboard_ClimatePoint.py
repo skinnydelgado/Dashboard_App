@@ -499,7 +499,7 @@ barchart_df = selected_data_exio[(selected_data_exio['Region'] != 'EU27') &
                                  (selected_data_exio['Region'] != "Europe including EU27") &
                                  (selected_data_exio['Region'] != 'Africa') &
                                  (selected_data_exio['Region'] != 'MiddleEast') &
-                                 (selected_data_exio['Region'] != 'GLO') ]                          
+                                 (selected_data_exio['Region'] != 'GLO') ].copy()                       
                                  
 barchart_df.plot.bar('Region', 'Value', width = 1.0, ec = c2, color=c1, ax=ax)
 
