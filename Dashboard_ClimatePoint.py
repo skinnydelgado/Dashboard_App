@@ -504,8 +504,10 @@ barchart_df = selected_data_exio[(selected_data_exio['Region'] != 'EU27') &
 barchart_df.plot.bar('Region', 'Value', width = 1.0, ec = c2, color=c1, ax=ax)
 
 #Plot horizontal lines of GLOBAL and EU Values
-plt.axhline(y=float(selected_data_exio.loc[selected_data_exio['Region'] == 'GLO', 'Value']) , color = 'r', linewidth = '3', label = 'Global' ) #horizontal line for GLO Value
-plt.axhline(y=float (selected_data_exio.loc[selected_data_exio['Region'] == 'Europe including EU27', 'Value']) , color = 'b', linewidth = '3', label = 'Europe' )#horizontal line for EU Value
+if "GLO" in selected_data_exio.Region :
+    plt.axhline(y=float(selected_data_exio.loc[selected_data_exio['Region'] == 'GLO', 'Value']) , color = 'r', linewidth = '3', label = 'Global' ) #horizontal line for GLO Value
+if "Europe including EU27" in selected_data_exio.Region :
+    plt.axhline(y=float (selected_data_exio.loc[selected_data_exio['Region'] == 'Europe including EU27', 'Value']) , color = 'b', linewidth = '3', label = 'Europe' )#horizontal line for EU Value
 label = selected_data_exio ['ISIC 4'].iloc[0]
 title_boxplot = 'ISIC: ' +str(label) 
 ax.grid(axis="y", color="w", linewidth=1.5)
@@ -548,8 +550,10 @@ col3.markdown ('The barchart showcases the '+ str(mean_type)+ ' Emission ' + str
                The chart also shows the Global and European value. 
                
                """)
-col3.write('The global value is: ' +  str(float(selected_data_exio.loc[selected_data_exio['Region'] == 'GLO', 'Value'])) )
-col3.write('The european value is: ' +  str(float(selected_data_exio.loc[selected_data_exio['Region'] ==  'Europe including EU27', 'Value'])) )
+if "GLO" in selected_data_exio.Region :
+    col3.write('The global value is: ' +  str("{:.2f}".format(float(selected_data_exio.loc[selected_data_exio['Region'] == 'GLO', 'Value']))) )
+if "Europe including EU27" in selected_data_exio.Region :
+    col3.write('The european value is: ' +  str("{:.2f}".format(float(selected_data_exio.loc[selected_data_exio['Region'] ==  'Europe including EU27', 'Value'])) ))
 #Boxplot by region
 col3.write ('#### Boxplot GHG Instensity of product and services by World region ')
 region_boxplot_df = barchart_df
