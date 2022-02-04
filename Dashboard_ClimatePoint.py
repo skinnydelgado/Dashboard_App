@@ -466,7 +466,7 @@ selected_data_exio= exio_df[ (exio_df['ISIC 4']== ISIC4) &
                        (exio_df['Perspective']== perspective) &
                        (exio_df['Type']== types) &
                        (exio_df['Mean']== mean_type) &
-                       (exio_df.Region.isin(region))]
+                       (exio_df.Region.isin(region))].copy()
 
 
 
